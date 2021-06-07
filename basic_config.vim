@@ -8,7 +8,7 @@ set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936
 filetype off
 
 " 退格键可用
-set backspace=2
+set backspace=eol,start,indent
 
 " 显示行号
 set nu
@@ -24,7 +24,7 @@ set autoindent
 set cindent
 
 " 关闭自动换行
-set nowrap
+" set nowrap
 
 " 打开功能键超时检测（终端下功能键为一串 ESC 开头的字符串）
 set ttimeout
@@ -119,22 +119,25 @@ set formatoptions+=B
 " 文件换行符，默认使用 unix 换行符
 set ffs=unix,dos,mac
 
+" 光标形状
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
 
 "----------------------------------------------------------------------
 " 设置代码折叠
 "----------------------------------------------------------------------
-if has('folding')
-	" 允许代码折叠
-	set foldenable
+" 允许代码折叠
+set foldenable
 
-	" 代码折叠默认使用缩进
-	set fdm=indent
+" 代码折叠默认使用缩进
+set fdm=indent
 
-	" 默认打开所有缩进
-	set foldlevel=99
-endif
+" 默认打开所有缩进
+set foldlevel=99
 
-
+" 粘贴模式
 "----------------------------------------------------------------------
 " 文件搜索和补全时忽略下面扩展名
 "----------------------------------------------------------------------
